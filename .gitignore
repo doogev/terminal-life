@@ -1,0 +1,14 @@
+# Compiled binary
+/life
+/terminal-life
+*.exe
+
+# Simulation output
+*.jsonl
+/runs/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
