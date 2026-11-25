@@ -13,6 +13,8 @@ A character-based ecosystem that runs in your terminal. Sunlight grows plants, h
 
 **M0 complete** — the plant field grows and renders. Herbivores arrive in M1.
 
+[STATUS.md](STATUS.md) holds the measured numbers: test count, throughput, known gaps, and what the next milestone needs.
+
 ## Quick start
 
 ```bash

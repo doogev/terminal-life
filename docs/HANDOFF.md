@@ -4,6 +4,7 @@ You are picking up **terminal-life**, a terminal ecosystem simulator. This file 
 
 ## Read in this order
 
+0. `STATUS.md` — where the project actually is right now: milestone, measured numbers, known gaps.
 1. `README.md` — what it is, in 30 seconds.
 2. `docs/DESIGN.md` — world model, genome, tick pipeline, energy accounting, parameters. **This is the source of truth for behaviour.**
 3. `docs/ARCHITECTURE.md` — package layout, dependency rule, performance budget.
