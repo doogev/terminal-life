@@ -11,23 +11,18 @@ A character-based ecosystem that runs in your terminal. Sunlight grows plants, h
 
 ## Status
 
-**Design phase.** No code yet. The build order and acceptance criteria live in [docs/ROADMAP.md](docs/ROADMAP.md).
+**M0 complete** — the plant field grows and renders. Herbivores arrive in M1.
 
-## Documentation
-
-| Doc | Contents |
-| --- | --- |
-| [docs/DESIGN.md](docs/DESIGN.md) | World model, genome, tick pipeline, energy accounting, parameters |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Module layout, dependency rules, data flow, performance budget |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Milestones M0–M4, acceptance criteria, known failure modes |
-
-## Quick start (once M1 lands)
+## Quick start
 
 ```bash
-go run ./cmd/life                 # watch it live in your terminal
+go run ./cmd/life                 # watch it in your terminal
 go run ./cmd/life --seed 42       # same seed, same run, every time
-go run ./cmd/life --headless --ticks 100000 --metrics out.jsonl
+go run ./cmd/life --headless --ticks 100000
+go run ./cmd/life --w 60 --h 20 --plants 120 --sun 0.01
 ```
+
+Requires Go 1.27+ (`~/apps/go/bin` on the development machine). No third-party dependencies.
 
 ## Design principles
 

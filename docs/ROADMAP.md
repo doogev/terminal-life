@@ -14,11 +14,15 @@ Milestones are ordered so that **something is on screen from day one**, and each
 go run ./cmd/life --seed 1
 ```
 
-- Screen fills with dim green characters spreading from random seeds.
+- The grid starts as scattered seed patches and fills to saturation within roughly 60 ticks.
 - `Ctrl-C` exits without leaving the terminal in a broken state (cursor restored, alt-screen exited).
 - Piping to a file produces **no** escape codes: `go run ./cmd/life | head -c 200 | grep -c $'\x1b'` → `0`.
 
-**Expected surprise**: growth fronts look like mould colonies, not lawns. That is the saturating curve doing its job.
+**Measured on first run**: 92 k ticks/s headless at 120×60; piped output contains 0 ESC bytes; 8 unit tests green.
+
+**Correction to an earlier claim**: growth does *not* spread outward as fronts. Sunlight is applied uniformly to every cell (DESIGN §3), so the whole grid brightens in parallel and the seed patches are only distinguishable for the first few ticks via the render visibility threshold. A true spatial front would require neighbourhood-dependent growth, which changes the energy model — recorded as an open question rather than done at M0.
+
+**Also expected**: with no consumers, the field saturates in ~60 ticks and then sits completely still. M0 has nothing that eats. This is not a stall.
 
 ---
 

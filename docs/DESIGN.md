@@ -131,8 +131,10 @@ Default values (all tunable via flags):
 - Full redraw is fine at 7,200 cells; the diff optimisation is only worth it if profiling says so.
 - One ANSI cursor-home plus one row-serialised frame per tick. No per-cell cursor moves.
 - ANSI 256-colour palette: plants dim green gradient by energy, herbivores yellow, predators red, intensity scaled by energy.
+- Plant cells below `plantVisible = 0.05` energy render as bare soil. Because sunlight is uniform (§3), without this threshold the entire grid lights up on tick 1 and seed patches are invisible as patches.
 - Frame rate: default 20 FPS (sleep to pace), flag `--fps`.
-- Non-TTY (piped output) automatically switches to headless, so `| tee` does not fill the log with escape codes.
+- Non-TTY (piped output) automatically switches to plain text: same frame, zero escape bytes, so `| tee` stays readable.
+- Headless mode renders nothing and reports only a one-line summary on stderr.
 
 ## 8. Determinism
 
